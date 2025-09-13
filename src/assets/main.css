@@ -1,0 +1,23 @@
+body {
+  background-color: #252422ff;
+  color: white;
+  text-align: center;
+
+  font-family: 'Roboto', sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+
+  /* CSS HEX */
+  --floral-white: #fffcf2ff;
+  --timberwolf: #ccc5b9ff;
+  --black-olive: #403d39ff;
+  --eerie-black: #252422ff;
+  --flame: #eb5e28ff;
+  --sky:#28c7eb;
+}
+
+.texto-titulo{
+  color: var(--floral-white);
+}
+
+
