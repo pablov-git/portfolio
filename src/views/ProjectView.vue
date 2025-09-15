@@ -5,19 +5,23 @@ const projects = [
   {
     title: 'E-Commerce',
     image: '/thumbnails/proyectoEcommerce.png',
-    technologies: ["JavaScript", "HTML5", "CSS3"]
+    technologies: ["JavaScript", "HTML5", "CSS3"],
+    link: 'https://github.com/pablov-git/e-commerce'
   },
   {
     title: 'Filmoteca',
     image: '/thumbnails/proyectoPeliculas.png',
-    technologies: ["Vue.js"]
+    technologies: ["Vue.js"],
+    link: 'https://github.com/pablov-git/favourite-films'
   },
   {
     title: 'To Do List',
     image: '/thumbnails/proyectoTodolist.png',
-    technologies: ["JavaScript", "Bootstrap", "HTML5", "CSS3"]
+    technologies: ["JavaScript", "Bootstrap", "HTML5", "CSS3"],
+    link: 'https://github.com/pablov-git/to-do-list'
   },
 ]
+
 </script>
 
 <template>
@@ -30,6 +34,7 @@ const projects = [
         :title="project.title"
         :image="project.image"
         :technologies="project.technologies"
+        :link="project.link"
       />
     </div>
   </section>

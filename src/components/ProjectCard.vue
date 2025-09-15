@@ -3,6 +3,7 @@ defineProps({
   title: String,
   image: String,
   technologies: Array,
+  link: String // nuevo prop para el enlace
 })
 </script>
 
@@ -13,6 +14,8 @@ defineProps({
     <div class="project_technologies">
       <span v-for="tech in technologies" :key="tech" class="tech_name">{{ tech }}</span>
     </div>
+    <!-- Botón solo si link existe -->
+    <a v-if="link" :href="link" target="_blank" rel="noopener" class="project_button">Ver proyecto</a>
   </div>
 </template>
 
@@ -37,7 +40,6 @@ defineProps({
 .project_image {
   width: 100%;
   border-radius: 0.5rem;
-  margin-bottom: 1rem;
   object-fit: cover;
   margin-bottom: 2rem;
 }
@@ -56,6 +58,7 @@ defineProps({
   flex-wrap: wrap;
   gap: 0.5rem;
   justify-content: center;
+  margin-bottom: 1.5rem;
 }
 
 .tech_name {
@@ -65,5 +68,19 @@ defineProps({
   border-radius: 0.4rem;
   font-size: 0.9rem;
   font-weight: 600;
+}
+
+.project_button {
+  padding: 0.5rem 1rem;
+  background-color: var(--sky);
+  color: var(--eerie-black);
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.project_button:hover {
+  background-color: var(--floral-white);
 }
 </style>

@@ -3,7 +3,7 @@ import profilePhotoColor from '../../public/profilePhotoColor.png'
 import TechCard from '../components/TechCard.vue'
 
 const technologies = [
-  { name: 'Vue.js', logo: '/logos/vue.png', level: 2 },
+  { name: 'Vue.js', logo: '/logos/vue.png', level: 3 },
   { name: 'JavaScript', logo: '/logos/javascript.png', level: 3 },
   { name: 'HTML5', logo: '/logos/html.png', level: 4 },
   { name: 'CSS3', logo: '/logos/css.png', level: 4 },
