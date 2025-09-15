@@ -17,7 +17,7 @@ const projects = [
   {
     title: 'To Do List',
     image: '/thumbnails/proyectoTodolist.png',
-    technologies: ["JavaScript", "Bootstrap", "HTML5", "CSS3"],
+    technologies: ["JavaScript", "HTML5", "CSS3"],
     link: 'https://github.com/pablov-git/to-do-list'
   },
 ]

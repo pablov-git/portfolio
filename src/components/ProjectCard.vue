@@ -114,5 +114,4 @@ defineProps({
     padding: 0.6rem;
   }
 }
-
 </style>

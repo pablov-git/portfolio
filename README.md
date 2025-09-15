@@ -1,35 +1,61 @@
-# routes-project
+# 💼 Portfolio Website
 
-This template should help get you started developing with Vue 3 in Vite.
+A personal portfolio showcasing my skills, projects, and experience as a developer. Built with Vue 3, this site demonstrates my proficiency in modern frontend development and UI design.
 
-## Recommended IDE Setup
+---
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## 🧰 Technologies Used
 
-## Customize configuration
+- Vue 3
+- Vue Router
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+---
 
-## Project Setup
+## 📂 Project Structure
 
-```sh
-npm install
-```
+| File / Folder   | Description |
+|-----------------|-------------|
+| `src/App.vue`    | Main Vue component |
+| `src/views/`     | Pages of the portfolio (Home, Proyects, Contact) |
+| `src/components/`     | Reusable components (TechCard, ProjectCard) |
+| `style.css`     | Global styles for the project |
+| `src/router/index.js`     | Vue Router configuration and routes |
+| `package.json`     | Project metadata and dependencies |
 
-### Compile and Hot-Reload for Development
+---
 
-```sh
-npm run dev
-```
+## ⚙️ How to Run Locally
 
-### Compile and Minify for Production
+1. Clone this repository:
 
-```sh
-npm run build
-```
+   ```bash
+   git clone https://github.com/pablov-git/portfolio.git
 
-### Lint with [ESLint](https://eslint.org/)
 
-```sh
-npm run lint
-```
+2. Navigate into the project directory:
+
+   ```bash
+   cd portfolio
+
+3. Install dependencies:
+
+   ```bash
+   npm install
+
+4. Start the development server:
+
+   ```bash
+   npm run dev
+
+5. Open the local URL shown in the terminal.
+
+
+## 🚀 Deployment
+
+The project is live at:
+👉 https://pablo-v-portfolio.netlify.app/
+
+
+## ✒️ Created by
+
+• Pablo Vacas Macarro

@@ -228,5 +228,4 @@ const sendEmail = (e) => {
     padding-bottom: 3rem;
   }
 }
-
 </style>

@@ -7,7 +7,6 @@ const technologies = [
   { name: 'JavaScript', logo: '/logos/javascript.png', level: 3 },
   { name: 'HTML5', logo: '/logos/html.png', level: 4 },
   { name: 'CSS3', logo: '/logos/css.png', level: 4 },
-  { name: 'Bootstrap', logo: '/logos/bootstrap.png', level: 4 },
   { name: 'Java', logo: '/logos/java.png', level: 2 },
   { name: 'SQL', logo: '/logos/sql.png', level: 2 },
   { name: 'Git', logo: '/logos/git.png', level: 3 }
@@ -192,7 +191,6 @@ const technologies = [
 
 /* --- TABLET --- */
 @media (max-width: 1024px) {
-  /* Contenedor principal */
   .container {
     flex-direction: row-reverse;
     gap: 3rem;
