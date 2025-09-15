@@ -183,9 +183,50 @@ const sendEmail = (e) => {
   background: var(--sky);
 }
 
-@media (max-width: 720px) {
+/* --- TABLETS --- */
+@media (max-width: 1024px) {
   .contact-grid {
     grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .contact-left {
+    padding-right: 0;
+    text-align: center;
+  }
+
+  .contact-left .title {
+    font-size: 3rem;
+    line-height: 1.2;
+  }
+
+  .contact-left .lead {
+    font-size: 1.2rem;
+  }
+
+  .form-group label {
+    font-size: 1.2rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 1rem;
+  }
+
+  .contact-form {
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .submit-btn {
+    width: 100%;
+    font-size: 1.2rem;
+    padding: 1rem 1.5rem;
+  }
+
+  .contact-container {
+    padding-bottom: 3rem;
   }
 }
+
 </style>

@@ -17,6 +17,10 @@ const technologies = [
 <template>
   <section class="intro">
     <div class="container">
+      <!-- Foto -->
+      <div class="intro_image">
+        <img class="profile-photo" :src="profilePhotoColor" alt="Foto" />
+      </div>
       <!-- Texto -->
       <div class="intro_text">
         <h1 class="intro_title">Hola, soy <span class="highlight">Pablo</span></h1>
@@ -34,11 +38,6 @@ const technologies = [
           <RouterLink to="/contact" class="btn btn--secondary">Contacto</RouterLink>
           <a href="/Pablo_CV.pdf" download="Pablo_CV.pdf" class="btn btn--tertiary">Descargar CV</a>
         </div>
-      </div>
-
-      <!-- Foto -->
-      <div class="intro_image">
-        <img class="profile-photo" :src="profilePhotoColor" alt="Foto" />
       </div>
     </div>
   </section>
@@ -70,6 +69,7 @@ const technologies = [
 /* CONTENEDORES */
 .container {
   display: flex;
+  flex-direction: row-reverse;
   justify-content: space-between;
   align-items: center;
   max-width: 1200px;
@@ -188,5 +188,81 @@ const technologies = [
   justify-content: center;
   gap: 1.5rem;
   margin-bottom: 1.5rem;
+}
+
+/* --- TABLET --- */
+@media (max-width: 1024px) {
+  /* Contenedor principal */
+  .container {
+    flex-direction: row-reverse;
+    gap: 3rem;
+    padding: 2rem 1.5rem;
+    align-items: center;
+  }
+
+  .profile-photo {
+    width: 270px;
+  }
+
+  .intro_title {
+    font-size: 2.5rem;
+  }
+
+  .intro_subtitle {
+    font-size: 1.5rem;
+  }
+
+  .intro_description {
+    font-size: 1.1rem;
+  }
+
+  .intro_actions {
+    gap: 0.8rem;
+  }
+
+  .tech_row {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* --- MÓVIL ---*/
+@media (max-width: 650px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem 1rem;
+  }
+
+  .profile-photo {
+    width: 220px;
+  }
+
+  .intro_title {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .intro_subtitle {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .intro_description {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .intro_actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .tech_row {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
 </style>

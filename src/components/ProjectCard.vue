@@ -3,7 +3,7 @@ defineProps({
   title: String,
   image: String,
   technologies: Array,
-  link: String // nuevo prop para el enlace
+  link: String
 })
 </script>
 
@@ -14,7 +14,6 @@ defineProps({
     <div class="project_technologies">
       <span v-for="tech in technologies" :key="tech" class="tech_name">{{ tech }}</span>
     </div>
-    <!-- Botón solo si link existe -->
     <a v-if="link" :href="link" target="_blank" rel="noopener" class="project_button">Ver proyecto</a>
   </div>
 </template>
@@ -77,10 +76,43 @@ defineProps({
   border-radius: 0.5rem;
   text-decoration: none;
   font-weight: 600;
-  transition: background 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 .project_button:hover {
   background-color: var(--floral-white);
 }
+
+@media (max-width: 768px) {
+  .project_card {
+    max-width: 420px;
+    width: 100%;
+    margin: 1rem auto;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+
+  .project_card img {
+    max-height: 200px;
+    margin-bottom: 1rem;
+  }
+
+  .project_card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  .techs span {
+    font-size: 0.8rem;
+    padding: 0.2rem 0.4rem;
+  }
+
+  .project_card a {
+    width: 100%;
+    max-width: 360px;
+    text-align: center;
+    padding: 0.6rem;
+  }
+}
+
 </style>

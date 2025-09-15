@@ -59,4 +59,44 @@ const projects = [
   grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
   gap: 2rem;
 }
+
+/* --- MÓVIL --- */
+@media (max-width: 768px) {
+  .projects {
+    padding: 1.5rem 1rem 3rem;
+    padding-bottom: 5rem;
+    margin: 2.5rem auto;
+  }
+
+  .projects_grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    justify-items: center;
+    gap: 1rem;
+  }
+
+  ::v-deep .project_card {
+    width: clamp(300px, 92%, 420px) !important;
+    margin: 0.8rem auto !important;
+    align-self: center !important;
+  }
+
+  .projects_grid > * {
+    justify-self: center;
+    width: 100%;
+    max-width: 420px;
+  }
+}
+
+@media (max-width: 420px) {
+  .projects_grid {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+
+  .projects {
+    padding: 1rem 0.75rem 2rem;
+    padding-bottom: 6rem;
+    margin: 1.5rem auto;
+  }
+}
 </style>
