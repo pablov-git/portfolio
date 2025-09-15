@@ -32,7 +32,7 @@ const technologies = [
         <div class="intro_actions">
           <RouterLink to="/projects" class="btn btn--primary">Ver proyectos</RouterLink>
           <RouterLink to="/contact" class="btn btn--secondary">Contacto</RouterLink>
-          <a href="/cv/Pablo_CV.pdf" download class="btn btn--tertiary">Descargar CV</a>
+          <a href="/Pablo_CV.pdf" download="Pablo_CV.pdf" class="btn btn--tertiary">Descargar CV</a>
         </div>
       </div>
 
