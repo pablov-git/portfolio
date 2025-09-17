@@ -35,7 +35,7 @@ const technologies = [
         <div class="intro_actions">
           <RouterLink to="/projects" class="btn btn--primary">Ver proyectos</RouterLink>
           <RouterLink to="/contact" class="btn btn--secondary">Contacto</RouterLink>
-          <a href="/Pablo_CV.pdf" download="Pablo_CV.pdf" class="btn btn--tertiary">Descargar CV</a>
+          <a href="/CV_Pablo.pdf" download="CV_Pablo.pdf" class="btn btn--tertiary">Descargar CV</a>
         </div>
       </div>
     </div>
@@ -123,7 +123,6 @@ const technologies = [
   font-weight: bold;
 }
 
-/* BOTONES CENTRADOS */
 .intro_actions {
   display: flex;
   justify-content: center;
