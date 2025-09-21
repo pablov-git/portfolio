@@ -20,6 +20,12 @@ const projects = [
     technologies: ["JavaScript", "HTML5", "CSS3"],
     link: 'https://github.com/pablov-git/to-do-list'
   },
+  {
+    title: 'Agencia de viajes',
+    image: '/thumbnails/proyectoAgenciaViajes.png',
+    technologies: ["JavaScript", "HTML5", "CSS3"],
+    link: 'https://github.com/pablov-git/AUJ-landing-page'
+  }
 ]
 
 </script>

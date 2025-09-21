@@ -28,7 +28,6 @@ defineProps({
   flex-direction: column;
   align-items: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  min-height: 300px;
 }
 
 .project_card:hover {
@@ -38,8 +37,12 @@ defineProps({
 
 .project_image {
   width: 100%;
-  border-radius: 0.5rem;
+  height: 400px;
   object-fit: cover;
+  object-position: top;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+  border-radius: 0.5rem;
   margin-bottom: 2rem;
 }
 

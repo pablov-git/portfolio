@@ -3,6 +3,7 @@ import { RouterLink, RouterView } from 'vue-router'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faHouse } from '@fortawesome/free-solid-svg-icons'
 import { faLinkedin, faSquareGithub } from '@fortawesome/free-brands-svg-icons'
+import ChatButton from './components/chatButton.vue';
 
 function abrirEnlace(url) {
   window.open(url, "_blank", "noopener,noreferrer");
@@ -28,6 +29,7 @@ function abrirEnlace(url) {
 
   <footer>
     <p>@ 2025</p>
+    <ChatButton/>
   </footer>
 </template>
 
@@ -109,8 +111,10 @@ footer {
   width: 100%;
   background: var(--eerie-black);
   color: var(--floral-white);
-  text-align: center;
   padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (min-width: 1024px) {
