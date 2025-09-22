@@ -145,11 +145,15 @@ const technologies = [
   background: var(--sky);
   color: var(--floral-white);
   border: none;
+  box-shadow: 0 0 0 transparent;
+  background-color: rgba(0, 175, 223, 0.8);
 }
 
 .btn--primary:hover {
   background: var(--sky);
-  filter: brightness(1.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 200, 255, 0.5);
+  background-color: var(--sky);
 }
 
 .btn--secondary {

@@ -1,5 +1,6 @@
 <script setup>
-import { defineEmits } from 'vue'
+import { defineEmits, ref, nextTick } from 'vue'
+import ChatMessage from './ChatMessage.vue'
 
 defineProps({
   isOpen: Boolean
@@ -9,8 +10,33 @@ const emit = defineEmits(['close'])
 function closeChat() {
   emit('close')
 }
-</script>
 
+const inputText = ref('')
+const chatBody = ref(null)
+function sendMessage() {
+  if (!inputText.value.trim()) return;
+  const userMessage = { sender: 'user', message: inputText.value }
+  messageList.value.push(userMessage)
+  inputText.value = ''
+
+  nextTick(() => {
+    if (chatBody.value) {
+      chatBody.value.scrollTo({
+        top: chatBody.value.scrollHeight,
+        behavior: 'smooth'
+      })
+    }
+  })
+}
+
+
+const messageList = ref([
+  {
+    sender: 'bot',
+    message: 'Hello, how can I help you?'
+  }
+])
+</script>
 
 <template>
   <div v-if="isOpen" class="chat-window">
@@ -18,17 +44,41 @@ function closeChat() {
       <h3>Chatbot</h3>
       <button class="close-btn" @click="closeChat">✖</button>
     </div>
-    <div class="chat-body">
-      <p>Prueba</p>
+
+    <div class="chat-body" ref="chatBody">
+      <ChatMessage
+        :class="message.sender == 'user' ? 'message-right' : 'message-left'"
+        v-for="message in messageList"
+        :sender="message.sender"
+        :message="message.message"
+        :key="message.message"
+      />
     </div>
+
     <div class="chat-footer">
-      <input type="text" placeholder="Escribe un mensaje" />
-      <button class="send-btn">Enviar</button>
+      <input
+        @keyup.enter="sendMessage"
+        v-model="inputText"
+        class="imput-field"
+        type="text"
+        placeholder="Escribe un mensaje"
+      />
+      <button @click="sendMessage" class="send-btn">Enviar</button>
     </div>
   </div>
 </template>
 
 <style scoped>
+.message-right {
+  width: 70%;
+  margin-left: auto;
+}
+
+.message-left {
+  width: 70%;
+  margin-right: auto;
+}
+
 .chat-window {
   position: fixed;
   bottom: 130px;
@@ -37,7 +87,7 @@ function closeChat() {
   height: 420px;
   background: #fff;
   border-radius: 16px;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -63,6 +113,9 @@ function closeChat() {
   flex: 1;
   padding: 10px;
   overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .chat-body p {
