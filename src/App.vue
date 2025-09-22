@@ -3,7 +3,7 @@ import { RouterLink, RouterView } from 'vue-router'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faHouse } from '@fortawesome/free-solid-svg-icons'
 import { faLinkedin, faSquareGithub } from '@fortawesome/free-brands-svg-icons'
-import ChatButton from './components/ChatButton.vue';
+import ChatButton from './components/ChatButton.vue'
 
 function abrirEnlace(url) {
   window.open(url, "_blank", "noopener,noreferrer");
