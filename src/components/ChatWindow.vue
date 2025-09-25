@@ -12,7 +12,6 @@ const ai = new GoogleGenAI({
   apiKey: import.meta.env.VITE_GEMINI_API_KEY
 });
 
-/*
 async function askAI(message) {
   const response = await ai.models.generateContent({
     model: "gemini-2.5-flash",
@@ -21,25 +20,6 @@ async function askAI(message) {
   return (response.text);
 }
 */
-
-async function askAI(message) {
-  try {
-    const response = await ai.models.generateContent({
-      model: "gemini-2.5-flash",
-      contents: message,
-    });
-    if (response && response.text) {
-      return response.text;
-    } else {
-      console.error("Respuesta inválida de AI:", response);
-      return "Lo siento, no pude generar una respuesta.";
-    }
-  } catch (err) {
-    console.error("Error al llamar a la API:", err);
-    return "Lo siento, ocurrió un error al generar la respuesta.";
-  }
-}
-
 
 function closeChat() {
   emit('close')
