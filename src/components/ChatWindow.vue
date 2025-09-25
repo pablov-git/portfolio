@@ -1,11 +1,24 @@
 <script setup>
 import { defineEmits, ref, nextTick } from 'vue'
 import ChatMessage from './ChatMessage.vue'
+import { GoogleGenAI } from "@google/genai";
+//import.meta.env.VITE_GEMINI_API_KEY
 
 defineProps({
   isOpen: Boolean
 })
 const emit = defineEmits(['close'])
+
+const ai = new GoogleGenAI({
+  apiKey: import.meta.env.VITE_GEMINI_API_KEY
+});
+async function askAI(message) {
+  const response = await ai.models.generateContent({
+    model: "gemini-2.5-flash",
+    contents: message,
+  });
+  return (response.text);
+}
 
 function closeChat() {
   emit('close')
@@ -13,10 +26,19 @@ function closeChat() {
 
 const inputText = ref('')
 const chatBody = ref(null)
+const loading = ref(false)
 function sendMessage() {
+  loading.value = true
   if (!inputText.value.trim()) return;
   const userMessage = { sender: 'user', message: inputText.value }
   messageList.value.push(userMessage)
+  askAI("Respóndeme brevemente (menos de unos 150 caracteres): " + inputText.value).then((response) => {
+    messageList.value.push({ sender: 'bot', message: response })
+  }).catch((error) => {
+    console.log("Error: ", error)
+  }).finally(() => {
+    loading.value = false
+  })
   inputText.value = ''
 
   nextTick(() => {
@@ -54,7 +76,7 @@ const messageList = ref([
         :key="message.message"
       />
     </div>
-
+    <p v-if="loading" class="thinking">La IA está pensando...</p>
     <div class="chat-footer">
       <input
         @keyup.enter="sendMessage"
@@ -69,6 +91,13 @@ const messageList = ref([
 </template>
 
 <style scoped>
+.thinking{
+  text-align: left;
+  margin-left: 10px;
+  font-size: 0.8rem;
+  color: var(--black-olive);
+}
+
 .message-right {
   width: 70%;
   margin-left: auto;
