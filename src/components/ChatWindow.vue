@@ -2,7 +2,6 @@
 import { defineEmits, ref, nextTick } from 'vue'
 import ChatMessage from './ChatMessage.vue'
 import { GoogleGenAI } from "@google/genai";
-//import.meta.env.VITE_GEMINI_API_KEY
 
 defineProps({
   isOpen: Boolean
