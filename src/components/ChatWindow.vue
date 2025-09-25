@@ -19,7 +19,6 @@ async function askAI(message) {
   });
   return (response.text);
 }
-*/
 
 function closeChat() {
   emit('close')
