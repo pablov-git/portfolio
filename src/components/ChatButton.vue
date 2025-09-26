@@ -1,7 +1,5 @@
 <script setup>
 import { ref } from 'vue'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faHeadset } from '@fortawesome/free-solid-svg-icons'
 import ChatWindow from './ChatWindow.vue'
 
 const isChatOpen = ref(false)
@@ -12,38 +10,54 @@ function toggleChat() {
 </script>
 
 <template>
-  <button class="headset-button" @click="toggleChat">
-    <FontAwesomeIcon class="headset-icon" :icon="faHeadset" />
+  <button class="chatbot-button" @click="toggleChat">
+    <img src="/chatBotIcon.png" alt="Chatbot" class="chatbot-icon" />
   </button>
 
   <ChatWindow :isOpen="isChatOpen" @close="isChatOpen = false" />
 </template>
 
 <style scoped>
-.headset-button {
+.chatbot-button {
   position: fixed;
-  bottom: 40px;
-  right: 40px;
-  border-radius: 50%;
-  padding: 10px;
-  font-size: 20px;
-  background-color: var(--sky);
-  border: none;
-  cursor: pointer;
+  bottom: 80px;
+  right: 140px;
   width: 75px;
   height: 75px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.2s ease;
-  z-index: 1001;
+  border-radius: 50%;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease, box-shadow 0.4s ease;
 }
 
-.headset-button:hover {
-  transform: scale(1.10);
+.chatbot-button:hover {
+  transform: translateY(-2px) scale(1.2);
+  box-shadow: 0 0 25px var(--sky);
 }
 
-.headset-icon {
-  color: var(--floral-white);
-  width: 50px;
-  height: 50px;
+.chatbot-icon {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+}
+
+@media (max-width: 1024px) {
+  .chatbot-button {
+    bottom: 30px;
+    right: 30px;
+    width: 65px;
+    height: 65px;
+  }
+
+  .chatbot-icon {
+    width: 70%;
+    height: 70%;
+  }
 }
 </style>

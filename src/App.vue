@@ -25,6 +25,7 @@ function abrirEnlace(url) {
 
   <main>
     <RouterView />
+    <div style="height: 100px;"></div>
   </main>
 
   <footer>
@@ -71,7 +72,7 @@ header {
 }
 
 .icon-link:hover {
-  transform: scale(1.1);  /* efecto de zoom */
+  transform: scale(1.1);
   color: var(--sky);
 }
 
@@ -121,7 +122,6 @@ footer {
   header {
     display: flex;
     place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
   }
 
   .logo {
