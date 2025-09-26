@@ -136,8 +136,8 @@ function sendMessage() {
 
 .chat-window {
   position: fixed;
-  bottom: 130px;
-  right: 40px;
+  bottom: 180px;
+  right: 120px;
   width: 420px;
   height: 520px;
   background: #fff;
@@ -210,5 +210,41 @@ function sendMessage() {
   color: var(--floral-white);
   font-size: 18px;
   cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+  .chat-window {
+    top: 50%;
+    left: 50%;
+    bottom: auto;
+    right: auto;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 600px;
+    height: 70%;
+    max-height: 500px;
+  }
+}
+
+@media (max-width: 600px) {
+  .chat-window {
+    bottom: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+  }
+
+  .chat-header h3 {
+    font-size: 1.2rem;
+  }
+
+  .chat-footer input {
+    font-size: 0.9rem;
+  }
+
+  .chat-footer button {
+    font-size: 0.9rem;
+  }
 }
 </style>
