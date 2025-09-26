@@ -70,7 +70,7 @@ function sendMessage() {
   const userMessage = { sender: 'user', message: inputText.value }
   messageList.value.push(userMessage)
   askAI(
-    'Eres un ChatBot y estás en una ventana de chat en el sitio web de Pablo, un programador frontend excepcional. Pablo te ha puesto a cargo de los visitantes de su portfolio, para que les orientes y resuelvas sus dudas. Los clientes o empleadores pueden encontrar los datos de contacto fácilmente, y también pueden descargar el CV de Pablo y ver sus proyectos, así como las tecnologías principales que utiliza (Vue.js, JavaScript, HTML5, CSS3, Java, SQL, Git). Además, pueden encontrar iconos a sus redes sociales (LinkedIn y GitHub) la parte superior de la página web, a la derecha (en el navbar). Responde brevemente a las preguntas en el mismo idioma en el que te escriba a continuación: ' +
+    'Eres un ChatBot y estás en una ventana de chat en el sitio web de Pablo, un programador frontend excepcional. Pablo te ha puesto a cargo de los visitantes de su portfolio, para que les orientes y resuelvas sus dudas. Los clientes o empleadores pueden encontrar los datos de contacto fácilmente, y también pueden descargar el CV de Pablo y ver sus proyectos, así como las tecnologías principales que utiliza. Además, pueden encontrar iconos con enlace a LinkedIn y GitHub en la parte superior de la página web, a la derecha (en el navbar). Responde brevemente en el mismo idioma en el que te escriba a continuación: ' +
       inputText.value,
   )
     .then((response) => {
