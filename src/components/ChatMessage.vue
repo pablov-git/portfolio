@@ -7,15 +7,25 @@ defineProps({
 
 <template>
   <div class="message-row" :class="sender === 'user' ? 'user' : 'bot'">
-    <!-- Avatar -->
-    <div class="avatar">
-      <span>{{ sender == 'user' ? '👤' : '🤖' }}</span>
-    </div>
+    <!-- Bot -->
+    <template v-if="sender === 'bot'">
+      <div class="avatar">
+        <span>🤖</span>
+      </div>
+      <div class="message-bot">
+        {{ message }}
+      </div>
+    </template>
 
-    <!-- Burbuja -->
-    <div :class="sender == 'user' ? 'message-user' : 'message-bot'">
-      {{ message }}
-    </div>
+    <!-- Usuario -->
+    <template v-else>
+      <div class="message-user">
+        {{ message }}
+      </div>
+      <div class="avatar">
+        <span>👤</span>
+      </div>
+    </template>
   </div>
 </template>
 
@@ -32,12 +42,8 @@ defineProps({
 }
 
 .message-row.user {
-  display: flex;
   justify-content: flex-end;
   flex-direction: row;
-  width: 100%;
-  align-items: flex-end;
-  gap: 8px;
 }
 
 .message-row.bot {
@@ -51,7 +57,7 @@ defineProps({
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background-color: #eee;
+  background-color: #ccc;
   display: flex;
   align-items: center;
   justify-content: center;

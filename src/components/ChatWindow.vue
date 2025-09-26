@@ -1,23 +1,23 @@
 <script setup>
-import { defineEmits, ref, nextTick } from 'vue'
+import { defineEmits, ref, nextTick, watch, onMounted } from 'vue'
 import ChatMessage from './ChatMessage.vue'
-import { GoogleGenAI } from "@google/genai";
+import { GoogleGenAI } from '@google/genai'
 
-defineProps({
-  isOpen: Boolean
+const props = defineProps({
+  isOpen: Boolean,
 })
 const emit = defineEmits(['close'])
 
 const ai = new GoogleGenAI({
-  apiKey: import.meta.env.VITE_GEMINI_API_KEY
-});
+  apiKey: import.meta.env.VITE_GEMINI_API_KEY,
+})
 
 async function askAI(message) {
   const response = await ai.models.generateContent({
-    model: "gemini-2.5-flash",
+    model: 'gemini-2.5-flash',
     contents: message,
-  });
-  return (response.text);
+  })
+  return response.text
 }
 
 function closeChat() {
@@ -27,37 +27,63 @@ function closeChat() {
 const inputText = ref('')
 const chatBody = ref(null)
 const loading = ref(false)
-function sendMessage() {
-  loading.value = true
-  if (!inputText.value.trim()) return;
-  const userMessage = { sender: 'user', message: inputText.value }
-  messageList.value.push(userMessage)
-  askAI("Respóndeme brevemente (menos de unos 150 caracteres): " + inputText.value).then((response) => {
-    messageList.value.push({ sender: 'bot', message: response })
-  }).catch((error) => {
-    console.log("Error: ", error)
-  }).finally(() => {
-    loading.value = false
-  })
-  inputText.value = ''
-
-  nextTick(() => {
-    if (chatBody.value) {
-      chatBody.value.scrollTo({
-        top: chatBody.value.scrollHeight,
-        behavior: 'smooth'
-      })
-    }
-  })
-}
-
 
 const messageList = ref([
   {
     sender: 'bot',
-    message: 'Hello, how can I help you?'
-  }
+    message: 'Hello, how can I help you?',
+  },
 ])
+
+function scrollToBottom({ behavior = 'smooth' } = {}) {
+  nextTick(() => {
+    if (!chatBody.value) return
+    try {
+      chatBody.value.scrollTo({ top: chatBody.value.scrollHeight, behavior })
+    } catch (e) {
+      console.error(e)
+      chatBody.value.scrollTop = chatBody.value.scrollHeight
+    }
+  })
+}
+
+watch(
+  () => props.isOpen,
+  (open) => {
+    if (open) scrollToBottom({ behavior: 'auto' })
+  },
+)
+
+watch(
+  () => messageList.value.length,
+  () => {
+    if (props.isOpen) scrollToBottom({ behavior: 'smooth' })
+  },
+)
+
+onMounted(() => {
+  if (props.isOpen) scrollToBottom({ behavior: 'auto' })
+})
+function sendMessage() {
+  loading.value = true
+  if (!inputText.value.trim()) return
+  const userMessage = { sender: 'user', message: inputText.value }
+  messageList.value.push(userMessage)
+  askAI(
+    'Eres un ChatBot y estás en una ventana de chat en el sitio web de Pablo, un programador frontend excepcional. Pablo te ha puesto a cargo de los visitantes de su portfolio, para que les orientes y resuelvas sus dudas. Los clientes o empleadores pueden encontrar los datos de contacto fácilmente, y también pueden descargar el CV de Pablo y ver sus proyectos, así como las tecnologías principales que utiliza (Vue.js, JavaScript, HTML5, CSS3, Java, SQL, Git). Además, pueden encontrar iconos a sus redes sociales (LinkedIn y GitHub) la parte superior de la página web, a la derecha (en el navbar). Responde brevemente a las preguntas en el mismo idioma en el que te escriba a continuación: ' +
+      inputText.value,
+  )
+    .then((response) => {
+      messageList.value.push({ sender: 'bot', message: response })
+    })
+    .catch((error) => {
+      console.log('Error: ', error)
+    })
+    .finally(() => {
+      loading.value = false
+    })
+  inputText.value = ''
+}
 </script>
 
 <template>
@@ -91,7 +117,7 @@ const messageList = ref([
 </template>
 
 <style scoped>
-.thinking{
+.thinking {
   text-align: left;
   margin-left: 10px;
   font-size: 0.8rem;
@@ -112,8 +138,8 @@ const messageList = ref([
   position: fixed;
   bottom: 130px;
   right: 40px;
-  width: 320px;
-  height: 420px;
+  width: 420px;
+  height: 520px;
   background: #fff;
   border-radius: 16px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
