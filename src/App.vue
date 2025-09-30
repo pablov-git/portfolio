@@ -25,7 +25,7 @@ function abrirEnlace(url) {
 
   <main>
     <RouterView />
-    <div style="height: 100px;"></div>
+    <div class="bottom-space"></div>
   </main>
 
   <footer>
@@ -118,7 +118,7 @@ footer {
   align-items: center;
 }
 
-@media (min-width: 1024px) {
+@media (max-width: 1024px) {
   header {
     display: flex;
     place-items: center;
@@ -141,6 +141,9 @@ footer {
 
     padding: 1rem 0;
     margin-top: 1rem;
+  }
+  .bottom-space {
+    height: 100px;
   }
 }
 </style>

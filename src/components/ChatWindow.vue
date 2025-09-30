@@ -4,6 +4,9 @@ import ChatMessage from './ChatMessage.vue'
 import { GoogleGenAI } from '@google/genai'
 import thinkingDots from '../../public/thinkingDots.gif'
 
+const sendSound = new Audio('/sounds/send.mp3')   // cámbialo por el nombre real
+const receiveSound = new Audio('/sounds/receive.mp3')
+
 const props = defineProps({
   isOpen: Boolean
 })
@@ -71,12 +74,14 @@ function sendMessage() {
   const messageToSend = inputText.value
   const userMessage = { sender: 'user', message: messageToSend }
   messageList.value.push(userMessage)
+  sendSound.play()
   askAI(
     'Eres un ChatBot y estás en una ventana de chat en el sitio web de Pablo, un programador frontend excepcional. Pablo te ha puesto a cargo de los visitantes de su portfolio, para que les orientes y resuelvas sus dudas. Los clientes o empleadores pueden encontrar los datos de contacto fácilmente, y también pueden descargar el CV de Pablo y ver sus proyectos, así como las tecnologías principales que utiliza. Además, pueden encontrar iconos con enlace a LinkedIn y GitHub en la parte superior de la página web, a la derecha (en el navbar). Responde brevemente en el mismo idioma en el que te escriba a continuación: ' +
       inputText.value,
   )
     .then((response) => {
       messageList.value.push({ sender: 'bot', message: response })
+      receiveSound.play()
     })
     .catch((error) => {
       console.log('Error: ', error)
