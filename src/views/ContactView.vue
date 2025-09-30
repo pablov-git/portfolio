@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue'
+import BackButton from '../components/BackButton.vue'
 
 const contact = ref({
   name: '',
@@ -50,6 +51,9 @@ const sendEmail = (e) => {
   <div class="contact-container">
     <div class="contact-grid">
       <aside class="contact-left">
+        <div class="back-button-wrapper">
+          <BackButton to="/" />
+        </div>
         <h1 class="title">Contacto</h1>
         <p class="lead">Por favor, rellena el formulario y te contactaré lo antes posible</p>
       </aside>
@@ -89,6 +93,11 @@ const sendEmail = (e) => {
 </template>
 
 <style scoped>
+.back-button-wrapper {
+  margin-bottom: 5rem;
+  display: inline-block;
+}
+
 .contact-container {
   max-width: 1200px;
   margin: 2rem auto;
@@ -119,6 +128,7 @@ const sendEmail = (e) => {
   opacity: 0.9;
   line-height: 1.6;
   color: var(--floral-white);
+  margin-bottom: 5rem;
 }
 
 .contact-form {

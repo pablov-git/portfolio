@@ -27,9 +27,10 @@ defineProps({
 .tech_card {
   flex: 1;
   max-width: 130px;
-  background: var(--eerie-black);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1rem;
   padding: 1.2rem;
-  border-radius: 0.8rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
   display: flex;
   flex-direction: column;
@@ -48,7 +49,8 @@ defineProps({
   width: 60px;
   height: 60px;
   object-fit: contain;
-  margin-bottom: 0.6rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .tech_name {

@@ -1,5 +1,6 @@
 <script setup>
 import ProjectCard from '../components/ProjectCard.vue'
+import BackButton from '../components/BackButton.vue'
 
 const projects = [
   {
@@ -32,6 +33,7 @@ const projects = [
 
 <template>
   <section class="projects">
+    <BackButton to="/" />
     <h1 class="projects_title">Mis proyectos</h1>
     <div class="projects_grid">
       <ProjectCard

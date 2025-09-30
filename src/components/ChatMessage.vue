@@ -30,7 +30,7 @@ defineProps({
 </template>
 
 <style scoped>
-/* Contenedor que junta avatar + burbuja */
+/* Contenedor que junta avatar + burbujas */
 .message-row {
   display: flex;
   align-items: flex-end;
@@ -67,7 +67,7 @@ defineProps({
 
 /* Burbujas */
 .message-user {
-  background-color: #007bff;
+  background-color: var(--blue-user);
   color: #fff;
   padding: 10px 14px;
   border-radius: 12px;
@@ -77,7 +77,7 @@ defineProps({
 }
 
 .message-bot {
-  background-color: #8e1790;
+  background-color: var(--purple-bot);
   color: #fff;
   padding: 10px 14px;
   border-radius: 12px;

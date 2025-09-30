@@ -2,9 +2,10 @@
 import { defineEmits, ref, nextTick, watch, onMounted } from 'vue'
 import ChatMessage from './ChatMessage.vue'
 import { GoogleGenAI } from '@google/genai'
+import thinkingDots from '../../public/thinkingDots.gif'
 
 const props = defineProps({
-  isOpen: Boolean,
+  isOpen: Boolean
 })
 const emit = defineEmits(['close'])
 
@@ -65,9 +66,10 @@ onMounted(() => {
   if (props.isOpen) scrollToBottom({ behavior: 'auto' })
 })
 function sendMessage() {
-  loading.value = true
   if (!inputText.value.trim()) return
-  const userMessage = { sender: 'user', message: inputText.value }
+  loading.value = true
+  const messageToSend = inputText.value
+  const userMessage = { sender: 'user', message: messageToSend }
   messageList.value.push(userMessage)
   askAI(
     'Eres un ChatBot y estás en una ventana de chat en el sitio web de Pablo, un programador frontend excepcional. Pablo te ha puesto a cargo de los visitantes de su portfolio, para que les orientes y resuelvas sus dudas. Los clientes o empleadores pueden encontrar los datos de contacto fácilmente, y también pueden descargar el CV de Pablo y ver sus proyectos, así como las tecnologías principales que utiliza. Además, pueden encontrar iconos con enlace a LinkedIn y GitHub en la parte superior de la página web, a la derecha (en el navbar). Responde brevemente en el mismo idioma en el que te escriba a continuación: ' +
@@ -102,7 +104,11 @@ function sendMessage() {
         :key="message.message"
       />
     </div>
-    <p v-if="loading" class="thinking">La IA está pensando...</p>
+    <div v-if="loading" class="thinking">
+      <div class="thinking-inner">
+        <img :src="thinkingDots" alt="La IA está pensando..." class="thinking-dots" />
+      </div>
+    </div>
     <div class="chat-footer">
       <input
         @keyup.enter="sendMessage"
@@ -118,10 +124,15 @@ function sendMessage() {
 
 <style scoped>
 .thinking {
-  text-align: left;
-  margin-left: 10px;
-  font-size: 0.8rem;
-  color: var(--black-olive);
+  display: flex;
+  justify-content: flex-start;
+  padding: 4px 0;
+}
+
+.thinking-dots {
+  width: 50px;
+  height: auto;
+  display: block;
 }
 
 .message-right {
@@ -150,7 +161,7 @@ function sendMessage() {
 }
 
 .chat-header {
-  background: var(--sky);
+  background: var(--midnight-purple);
   color: var(--floral-white);
   padding: 10px;
   display: flex;

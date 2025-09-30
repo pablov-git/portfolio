@@ -80,7 +80,7 @@ header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background-color: var(--eerie-black);
+  background-color: rgba(0,0,0,0);
   width: 90%;
   margin-top: 30px;
 }
@@ -110,7 +110,7 @@ footer {
   bottom: 0;
   left: 0;
   width: 100%;
-  background: var(--eerie-black);
+  background-color: rgba(0,0,0,0);
   color: var(--floral-white);
   padding: 1rem;
   display: flex;

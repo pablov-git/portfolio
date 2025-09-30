@@ -1,8 +1,11 @@
 body {
-  background-color: #252422ff;
+  background: linear-gradient(to bottom, var(--eerie-black), var(--midnight-purple));
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
   color: white;
   text-align: center;
-
   font-family: 'Roboto', sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
@@ -14,6 +17,9 @@ body {
   --eerie-black: #252422ff;
   --flame: #eb5e28ff;
   --sky:#28c7eb;
+  --midnight-purple: #363769;
+  --blue-user: #1265bd;
+  --purple-bot: #431790;
 }
 
 .texto-titulo{

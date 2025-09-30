@@ -9,7 +9,7 @@ const technologies = [
   { name: 'CSS3', logo: '/logos/css.png', level: 4 },
   { name: 'Java', logo: '/logos/java.png', level: 2 },
   { name: 'SQL', logo: '/logos/sql.png', level: 2 },
-  { name: 'Git', logo: '/logos/git.png', level: 3 }
+  { name: 'Git', logo: '/logos/git.png', level: 3 },
 ]
 </script>
 
@@ -27,9 +27,9 @@ const technologies = [
         <p class="intro_description">
           Estoy ubicado en Madrid y me apasiona el <span class="highlight">desarrollo web</span>. Me
           especializo en crear interfaces <span class="highlight">modernas</span>,
-          <span class="highlight">rápidas</span> y <span class="highlight">accesibles</span>. Siempre
-          estoy abierto a <span class="highlight">nuevos proyectos</span>, así que si tienes una idea,
-          no dudes en contactarme
+          <span class="highlight">rápidas</span> y <span class="highlight">accesibles</span>.
+          Siempre estoy abierto a <span class="highlight">nuevos proyectos</span>, así que si tienes
+          una idea, no dudes en contactarme
         </p>
 
         <div class="intro_actions">
@@ -45,7 +45,7 @@ const technologies = [
   <section class="technologies">
     <div class="tech_row">
       <TechCard
-        v-for="tech in technologies.slice(0,4)"
+        v-for="tech in technologies.slice(0, 4)"
         :key="tech.name"
         :name="tech.name"
         :logo="tech.logo"
@@ -132,50 +132,57 @@ const technologies = [
 
 /* BOTONES */
 .btn {
-  padding: 0.85rem 1.6rem;
+  padding: 0.9rem 1.8rem;
   font-size: 1rem;
-  border-radius: 2rem;
-  font-weight: bold;
+  border-radius: 999px;
+  font-weight: 500;
   text-decoration: none;
   transition: all 0.3s ease;
   display: inline-block;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
+/* ---- VARIANTES ---- */
 .btn--primary {
-  background: var(--sky);
   color: var(--floral-white);
-  border: none;
-  box-shadow: 0 0 0 transparent;
-  background-color: rgba(0, 175, 223, 0.8);
+  border: 2px solid var(--sky);
+  background: rgba(0, 175, 223, 0.15);
 }
 
 .btn--primary:hover {
   background: var(--sky);
+  color: var(--floral-white);
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(0, 200, 255, 0.5);
-  background-color: var(--sky);
+  box-shadow: 0 8px 20px rgba(0, 200, 255, 0.3);
 }
 
 .btn--secondary {
-  border: 2px solid var(--sky);
-  color: var(--sky);
+  color: var(--timberwolf);
+  border: 2px solid var(--timberwolf);
   background: transparent;
 }
 
 .btn--secondary:hover {
-  background: var(--sky);
-  color: var(--floral-white);
+  background: var(--timberwolf);
+  color: var(--eerie-black);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(200, 200, 200, 0.3);
 }
 
 .btn--tertiary {
-  background: var(--timberwolf);
-  color: var(--eerie-black);
-  border: none;
+  color: var(--floral-white);
+  border: 2px solid var(--eerie-black);
+  background: rgba(30, 30, 30, 0.4);
 }
 
 .btn--tertiary:hover {
-  background: var(--sky);
+  background: var(--eerie-black);
   color: var(--floral-white);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(99, 89, 158, 0.4)
 }
 
 /* TECNOLOGÍAS */
