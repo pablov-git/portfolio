@@ -4,7 +4,7 @@ import ChatMessage from './ChatMessage.vue'
 import { GoogleGenAI } from '@google/genai'
 import thinkingDots from '../../public/thinkingDots.gif'
 
-const sendSound = new Audio('/sounds/send.mp3')   // cámbialo por el nombre real
+const sendSound = new Audio('/sounds/send.mp3')
 const receiveSound = new Audio('/sounds/receive.mp3')
 
 const props = defineProps({
