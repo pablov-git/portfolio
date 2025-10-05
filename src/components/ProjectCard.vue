@@ -3,7 +3,8 @@ defineProps({
   title: String,
   image: String,
   technologies: Array,
-  link: String
+  gitLink: String,
+  demoLink: String
 })
 </script>
 
@@ -14,13 +15,18 @@ defineProps({
     <div class="project_technologies">
       <span v-for="tech in technologies" :key="tech" class="tech_name">{{ tech }}</span>
     </div>
-    <a v-if="link" :href="link" target="_blank" rel="noopener" class="project_button">Ver proyecto</a>
+    <div class="project_buttons">
+      <a v-if="gitLink" :href="gitLink" target="_blank" rel="noopener" class="project_button">Ver proyecto</a>
+      <a v-if="demoLink" :href="demoLink" target="_blank" rel="noopener" class="project_button">Demo</a>
+    </div>
   </div>
 </template>
 
 <style scoped>
 .project_card {
-  background: var(--eerie-black);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
   border-radius: 0.8rem;
   padding: 1.5rem;
   box-shadow: 0 4px 10px rgba(0,0,0,0.4);
@@ -40,8 +46,6 @@ defineProps({
   height: 400px;
   object-fit: cover;
   object-position: top;
-  border-radius: 0.5rem;
-  margin-bottom: 2rem;
   border-radius: 0.5rem;
   margin-bottom: 2rem;
 }
@@ -70,6 +74,13 @@ defineProps({
   border-radius: 0.4rem;
   font-size: 0.9rem;
   font-weight: 600;
+}
+
+.project_buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .project_button {
@@ -108,6 +119,13 @@ defineProps({
   .techs span {
     font-size: 0.8rem;
     padding: 0.2rem 0.4rem;
+  }
+
+  .project_buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    align-items: center;
   }
 
   .project_card a {

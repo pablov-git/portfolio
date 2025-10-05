@@ -7,25 +7,29 @@ const projects = [
     title: 'E-Commerce',
     image: '/thumbnails/proyectoEcommerce.png',
     technologies: ["JavaScript", "HTML5", "CSS3"],
-    link: 'https://github.com/pablov-git/e-commerce'
+    gitLink: 'https://github.com/pablov-git/e-commerce',
+    demoLink: 'https://pablov-git-e-commerce.netlify.app/'
   },
   {
     title: 'Filmoteca',
     image: '/thumbnails/proyectoPeliculas.png',
     technologies: ["Vue.js"],
-    link: 'https://github.com/pablov-git/favourite-films'
+    gitLink: 'https://github.com/pablov-git/favourite-films',
+    demoLink: 'https://favourite-films.netlify.app/'
   },
   {
     title: 'To Do List',
     image: '/thumbnails/proyectoTodolist.png',
     technologies: ["JavaScript", "HTML5", "CSS3"],
-    link: 'https://github.com/pablov-git/to-do-list'
+    gitLink: 'https://github.com/pablov-git/to-do-list',
+    demoLink: 'https://pablov-git-to-do-list.netlify.app/'
   },
   {
     title: 'Agencia de viajes',
     image: '/thumbnails/proyectoAgenciaViajes.png',
     technologies: ["JavaScript", "HTML5", "CSS3"],
-    link: 'https://github.com/pablov-git/AUJ-landing-page'
+    gitLink: 'https://github.com/pablov-git/AUJ-landing-page',
+    demoLink: 'https://pablov-landing-page.netlify.app/'
   }
 ]
 
@@ -42,7 +46,8 @@ const projects = [
         :title="project.title"
         :image="project.image"
         :technologies="project.technologies"
-        :link="project.link"
+        :gitLink="project.gitLink"
+        :demoLink="project.demoLink"
       />
     </div>
   </section>
